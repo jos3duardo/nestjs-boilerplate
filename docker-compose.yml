@@ -1,0 +1,12 @@
+services:
+  nestjs-nq:
+    container_name: nestjs-nq
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: .docker/entrypoint.sh
+    ports:
+      - ${PORT:-9877}:3000
+    volumes:
+      - .:/app
+
