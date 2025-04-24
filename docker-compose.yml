@@ -10,3 +10,19 @@ services:
     volumes:
       - .:/app
 
+  db:
+    image: "postgres:11.5"
+    environment:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_DB=mydb"
+      - "POSTGRES_PASSWORD=postgres"
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+    db:
+        driver: local
